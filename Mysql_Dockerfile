@@ -1,0 +1,10 @@
+FROM dockerttnd/mysqlinfra:2.0
+MAINTAINER AS Support rahul.jaiswal@tothenew.com
+ADD my.cnf /etc/mysql/
+ADD mysql.sh /
+RUN chmod +x mysql.sh
+ADD setup.sql /
+ADD run.sh /
+RUN chmod +x run.sh
+Expose 3306
+CMD [/run.sh]
